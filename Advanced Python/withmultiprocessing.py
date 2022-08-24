@@ -8,6 +8,7 @@ import openpyxl
 path="newsheet.xlsx"
 wbobj=openpyxl.load_workbook(path)
 sheet =wbobj.active
+
 data=[]
 for row in data:
     sheet.append(row)
@@ -34,16 +35,13 @@ print("sorted list is: \n")
 print(finallist)
 print("\n")
 
+
 column = sheet['B']
 columnlist=[column[x].value for x in range(1,len(column))]
-print("column 1 is: \n")
-print(columnlist)
-print("\n")
+
 column = sheet['C']
 columnlist1=[column[x].value for x in range(1,len(column))]
-print("column 2 is: \n")
-print(columnlist1)
-print("\n")
+
 
 mean1=sum(columnlist)/len(columnlist)
 mean2=sum(columnlist1)/len(columnlist1)
@@ -128,9 +126,6 @@ if __name__ == "__main__":
     print("Done!") 
 
 
-#PRINT TIME
-executionTime = (time.time() - startTime)
-print('Execution time in seconds for with multiprocessing: ' + str(executionTime))
 
 ###################################################################
 # WRITE TO SHEET
@@ -214,6 +209,11 @@ cell2 = sheet.cell(row= 21, column = 2)
 cell2.value = g.regression(columnlist, columnlist1)
 
 
+
+
+#PRINT TIME
+executionTime = (time.time() - startTime)
+print('Execution time in seconds for with multiprocessing: ' + str(executionTime))
 
 
 cell1 = sheet.cell(row = 22, column = 1)

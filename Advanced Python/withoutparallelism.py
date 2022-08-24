@@ -85,10 +85,6 @@ print(g.regression(columnlist, columnlist1))
 
 
 
-#PRINT TIME
-executionTime = (time.time() - startTime)
-print('Execution time in seconds for without parallelism: ' + str(executionTime))
-
 
 ###################################################################
 # WRITE TO SHEET
@@ -171,6 +167,11 @@ cell1.value = "Regression: "
 cell2 = sheet.cell(row= 21, column = 2)
 cell2.value = g.regression(columnlist, columnlist1)
 
+
+
+#PRINT TIME
+executionTime = (time.time() - startTime)
+print('Execution time in seconds for without parallelism: ' + str(executionTime))
 
 cell1 = sheet.cell(row = 22, column = 1)
 cell1.value = "Time: "
